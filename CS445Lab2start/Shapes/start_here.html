@@ -1,0 +1,64 @@
+<html>
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <script id="vertex-shader" type="x-shader/x-vertex">
+       attribute vec4 vPosition;
+       attribute vec4 vColor;
+       uniform   mat4 uProjection; // projection matrix
+       uniform   mat4 uModel_view; // model view matrix
+ 
+       varying vec4 color;
+            
+       void main() 
+       {
+           color = vColor;
+           gl_Position = uProjection * uModel_view * vPosition;
+       } 
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+
+        varying vec4 color;
+
+        void
+        main()
+        {
+             gl_FragColor = color;
+        }
+    </script>
+
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="geometry/Cube.js"></script>
+    <script type="text/javascript" src="geometry/Disc.js"></script>
+    <script type="text/javascript" src="geometry/Cone.js"></script>
+    <script type="text/javascript" src="geometry/Cylinder.js"></script>
+    <!-- TO DO:  ADD OTHER SHAPE FILES HERE -->
+    <script type="text/javascript" src="geometry/Shapes.js"></script>
+    <script type="text/javascript" src="render_scene.js"></script>
+
+    <body>
+
+        <h2> Lab 2: Demonstration of Geometry</h2>
+
+        <canvas id="gl-canvas" width="512" height="512">
+            Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+
+        <br/>
+
+        <button id= "xButton">Rotate X</button>
+        <button id= "yButton">Rotate Y</button>
+        <button id= "zButton">Rotate Z</button>
+
+        <select id="ShapesChoice">
+            <option value="0">Cube</option>
+            <option value="1">Disc</option>
+            <option value="2">Cone</option>
+            <option value="3">Cylinder</option>
+            <!-- TO DO:  ADD OTHER SHAPES -->
+        </select>
+
+    </body>
+</html>

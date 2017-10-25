@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<p>
+I like whales a lot.
+</p>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+
+
+
+</canvas>
+<br />
+
+<script type="text/javascript">
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,100);
+	ctx.stroke();
+
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	ctx.beginPath();
+	ctx.arc(95,50,40,0,2*Math.PI);
+	ctx.stroke();
+</script>
+
+
+<canvas id="canvas2" width="200" height = "200" style="border:1px solid #000000;">
+</canvas>
+
+<script type="text/javascript">
+var c = document.getElementById("canvas2");
+var ctx = c.getContext("2d");
+ctx.font = "30px Arial";
+ctx.strokeText("Hello World",10,50);
+</script>
+
+
+
+
+</body>
+</html>
+
